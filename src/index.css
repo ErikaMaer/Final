@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "~materialize-css/dist/css/materialize.min.css";
+
+
+.card .card-title {
+    font-size: 30px !important;
+    position:absolute;
+    right: 160px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.material-icons{
+    font-size: 40px !important;
+    position: absolute;
+    top: 10px;
+    color: white;
+    left: 20px;
+}
+
+input.yellow-input{
+    border-bottom: 1px solid #fff!important;
+    box-shadow: 0 1px 0 0 #fff!important;
+    width:75% !important;
+}
+
+input.yellow-input + label {
+    color: #ffffff!important;
+}
+
+input.yellow-input:focus + label {
+    color: #ffeb3d!important;
+}
+
+input.yellow-input:focus{
+    border-bottom: 1px solid #ffeb3d!important;
+    box-shadow: 0 1px 0 0 #ffeb3d!important;
 }
