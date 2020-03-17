@@ -3,59 +3,55 @@ import React from "react";
 export const LoginPage=()=>{
     return(
         <div>
-            <div className="row">
-                <div className="card col s6 offset-s3">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                            <span className="card-title"
-                                  >Authorization</span>
+            <div className="row col s6 offset-s3">
+                <div className="card col s6 offset-s3" >
+                        <div className="card-content white-text col s6 offset-s3 m8">
+                            <span
+                                className="card-title col s6 offset-s5"
+                            >Authorization</span>
                         </div>
 
-                        <div style={{marginLeft: 20}}  className="input-field  ">
 
+                        <div className="input-field col s7 offset-s1">
+                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+                            <i className="material-icons">email</i>
                             <input
-
-                                placeholder="Enter your email address"
-                                   id="email"
-                                   type="text"
-                                   name="email"
-                                   className="yellow-input"
+                                placeholder="Email"
+                                id="email"
+                                type="text"
+                                name="email"
+                                className="yellow-input col s6 offset-s2"
                             />
-                            <label htmlFor="first_name">Email</label>
                         </div>
 
-
-                        <div style={{marginLeft: 20}}className="input-field">
-                            <input placeholder="Enter the password"
-                                   id="password"
-                                   type="password"
-                                   name="password"
-                                   className="yellow-input"
-                            />
-                            <label htmlFor="first_name">Password</label>
+                        <div className="input-field col s7 offset-s1">
+                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+                            <i className="Large material-icons">lock</i>
+                            <input
+                               placeholder="Password"
+                               id="password"
+                               type="password"
+                               name="password"
+                               className="yellow-input col s6 offset-s2"
+                        />
                         </div>
 
-                        <div className="card-action">
-
+                        <div className="card-action col s4 offset-s1">
                             <button
-                                className="btn orange darken-3"
+                                className="btn amber darken-4 "
                             >
                                 Sign in
                             </button>
-
+                        </div>
+                      <div className="card-action col s4 offset-s1">
                             <button
-                                className="btn teal lighten-4 black-text"
-                                style={{marginLeft: 10}}
+                                className="btn yellow accent-3 black-text "
                             >
                                 Registration
                             </button>
                         </div>
-                        </div>
-
                     </div>
-                </div>
             </div>
-
-
-    )
+        </div>
+)
 }

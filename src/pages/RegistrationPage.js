@@ -3,71 +3,61 @@ import React from "react";
 export const RegistrationPage=()=>{
     return(
         <div>
-            <div className="row">
-                <div className="card col s6 offset-s3">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
+            <div className="row col s6 offset-s3">
+            <div className="card col s6 offset-s3" >
+                        <div className="card-content white-text col s6 offset-s3 m8 ">
                             <span
-                                className="card-title"
+                                className="card-title col s6 offset-s5"
                             >Registration</span>
                         </div>
 
 
-                        <div  className="input-field  ">
+                        <div  className="input-field col s7 offset-s1 ">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="Large material-icons">person</i>
+                            <i className="material-icons">person</i>
                             <input
-                                style={{marginLeft: 60}}
                                 placeholder="Name"
                                 id="name"
                                 type="text"
                                 name="name"
-                                className="yellow-input"
+                                className="yellow-input col s6 offset-s2"
                             />
-
-
                         </div>
 
-
-
-                        <div className="input-field  ">
+                        <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
                             <i className="Large material-icons">email</i>
                             <input
-                                style={{marginLeft: 60}}
                                 placeholder="Email"
                                 id="email"
                                 type="text"
                                 name="email"
-                                className="yellow-input"
+                                className="yellow-input col s6 offset-s2"
                             />
 
                         </div>
 
-                        <div className="input-field">
+                        <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
                             <i className="Large material-icons">lock</i>
                             <input placeholder="Password"
-                                   style={{marginLeft: 60}}
                                    id="password"
                                    type="password"
                                    name="password"
-                                   className="yellow-input"
+                                   className="yellow-input col s6 offset-s2"
                             />
                         </div>
 
-                        <div className="card-action">
+                        <div className="card-action col s6 offset-s4">
 
                             <button
-                                className="btn teal lighten-4 black-text"
-                                style={{marginLeft: 140}}
+                                className="btn yellow accent-3 black-text  "
                             >
                                 Register
                             </button>
                         </div>
                     </div>
 
-                </div>
             </div>
         </div>
     )
