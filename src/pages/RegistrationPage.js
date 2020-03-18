@@ -1,6 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useHttp} from "../hooks/http.hook";
+import {useMessage} from "../hooks/message.hook";
 
 export const RegistrationPage=()=>{
+    const message = useMessage();
+    const {loading, request, error, clearError} = useHttp();
+    const [form, setForm] = useState({
+        email: '', password: ''
+    })
+
+    useEffect(() => {
+        message(error)
+        clearError()
+    }, [error, message, clearError])
+
+    const changeHandler = event => {
+        setForm({...form, [event.target.name]: event.target.value})
+    }
+
+    const registerHandler = async () => {
+        try {
+            const data = await request('/api/items/register', 'POST', {...form})
+            message(data.message)
+        } catch (e) {
+        }
+    }
+
     return(
         <div>
             <div className="row col s6 offset-s3">
@@ -21,6 +46,7 @@ export const RegistrationPage=()=>{
                                 type="text"
                                 name="name"
                                 className="yellow-input col s6 offset-s2"
+                                onChange={changeHandler}
                             />
                         </div>
 
@@ -33,6 +59,7 @@ export const RegistrationPage=()=>{
                                 type="text"
                                 name="email"
                                 className="yellow-input col s6 offset-s2"
+                                onChange={changeHandler}
                             />
 
                         </div>
@@ -45,6 +72,7 @@ export const RegistrationPage=()=>{
                                    type="password"
                                    name="password"
                                    className="yellow-input col s6 offset-s2"
+                                   onChange={changeHandler}
                             />
                         </div>
 
@@ -52,6 +80,8 @@ export const RegistrationPage=()=>{
 
                             <button
                                 className="btn yellow accent-3 black-text  "
+                                onClick={registerHandler}
+                                disabled={loading}
                             >
                                 Register
                             </button>

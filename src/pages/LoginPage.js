@@ -1,13 +1,55 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from 'react';
+import {useHttp} from "../hooks/http.hook";
+import {useMessage} from "../hooks/message.hook";
+import {AuthContext} from "../contexT/AuthContext";
 
-export const LoginPage=()=>{
+export const LoginPage = () =>{
+    const auth = useContext(AuthContext)
+    const message = useMessage();
+    const {loading, request, error, clearError} = useHttp();
+    const [form, setForm] = useState({
+        email: '', password: ''
+    })
+
+    useEffect(() => {
+        message(error)
+        clearError()
+    }, [error, message, clearError])
+
+    useEffect(() => {
+        window.M.updateTextFields()
+    }, [])
+
+
+    const changeHandler = event => {
+        setForm({...form, [event.target.name]: event.target.value})
+    }
+
+    const registerHandler = async () => {
+        try {
+            const data = await request('/api/items/register', 'POST', {...form})
+            message(data.message)
+        } catch (e) {
+        }
+    }
+
+
+    const loginHandler = async () => {
+        try {
+            const data = await request('/api/items/login', 'POST', {...form})
+            auth.login(data.token, data.userId)
+        } catch (e) {
+        }
+    }
+
+
     return(
         <div>
             <div className="row col s6 offset-s3">
                 <div className="card col s6 offset-s3" >
                         <div className="card-content white-text col s6 offset-s3 m8">
                             <span
-                                className="card-title col s6 offset-s5"
+                                className="card-title col s6 offset-s6"
                             >Authorization</span>
                         </div>
 
@@ -21,6 +63,7 @@ export const LoginPage=()=>{
                                 type="text"
                                 name="email"
                                 className="yellow-input col s6 offset-s2"
+                                onChange={changeHandler}
                             />
                         </div>
 
@@ -33,12 +76,16 @@ export const LoginPage=()=>{
                                type="password"
                                name="password"
                                className="yellow-input col s6 offset-s2"
+                              onChange={changeHandler}
                         />
                         </div>
 
                         <div className="card-action col s4 offset-s1">
                             <button
                                 className="btn amber darken-4 "
+                                disabled={loading}
+                                onClick={loginHandler}
+
                             >
                                 Sign in
                             </button>
@@ -46,6 +93,8 @@ export const LoginPage=()=>{
                       <div className="card-action col s4 offset-s1">
                             <button
                                 className="btn yellow accent-3 black-text "
+                                onClick={registerHandler}
+                                disabled={loading}
                             >
                                 Registration
                             </button>
@@ -55,3 +104,5 @@ export const LoginPage=()=>{
         </div>
 )
 }
+
+//onClick={window.location.href = './pages/RegistrationPage'}
