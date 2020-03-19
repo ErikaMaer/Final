@@ -32,6 +32,7 @@ import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 import {LoginPage} from "./pages/LoginPage";
 import {Collections} from "./pages/CollectionsPage";
+import {RegistrationPage} from "./pages/RegistrationPage";
 
 export const useRoutes = isAuthenticated =>{
     if(isAuthenticated){
@@ -48,6 +49,9 @@ export const useRoutes = isAuthenticated =>{
         <Switch>
             <Route path="/" exact>
                 <LoginPage/>
+            </Route>
+            <Route path="/registration" exact>
+                <RegistrationPage/>
             </Route>
             <Redirect to="/"/>
         </Switch>

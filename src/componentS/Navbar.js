@@ -16,7 +16,8 @@ export const Navbar = () =>{
         <nav>
             <div className="nav-wrapper purple darken-1" style ={{ padding: '0 2rem'}}>
                 <div className="nav-wrapper purple darken-1">
-                    <span className="brand-logo">Users</span>
+                    <span className="brand-logo">Collections</span>
+
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><a href ="/" onClick={logoutHandler}>Logout</a></li>
 
@@ -27,3 +28,7 @@ export const Navbar = () =>{
 
     )
 }
+// <div className="input-field col s6">
+//     <input id="last_name" type="text" className="validate"/>
+//     <label htmlFor="last_name">Last Name</label>
+// </div>

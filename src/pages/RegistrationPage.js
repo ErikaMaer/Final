@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
+import {AuthContext} from "../contexT/AuthContext";
 
 export const RegistrationPage=()=>{
+    const auth = useContext(AuthContext)
     const message = useMessage();
     const {loading, request, error, clearError} = useHttp();
     const [form, setForm] = useState({
@@ -22,9 +24,12 @@ export const RegistrationPage=()=>{
         try {
             const data = await request('/api/items/register', 'POST', {...form})
             message(data.message)
+            auth.login(data.token, data.userId)
         } catch (e) {
         }
     }
+
+
 
     return(
         <div>
@@ -39,26 +44,26 @@ export const RegistrationPage=()=>{
 
                         <div  className="input-field col s7 offset-s1 ">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons">person</i>
+                            <i className="material-icons prefix">person</i>
                             <input
                                 placeholder="Name"
                                 id="name"
                                 type="text"
                                 name="name"
-                                className="yellow-input col s6 offset-s2"
+                                className="yellow-input"
                                 onChange={changeHandler}
                             />
                         </div>
 
                         <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="Large material-icons">email</i>
+                            <i className="material-icons prefix">email</i>
                             <input
                                 placeholder="Email"
                                 id="email"
                                 type="text"
                                 name="email"
-                                className="yellow-input col s6 offset-s2"
+                                className="yellow-input"
                                 onChange={changeHandler}
                             />
 
@@ -66,12 +71,12 @@ export const RegistrationPage=()=>{
 
                         <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="Large material-icons">lock</i>
+                            <i className="material-icons prefix">lock</i>
                             <input placeholder="Password"
                                    id="password"
                                    type="password"
                                    name="password"
-                                   className="yellow-input col s6 offset-s2"
+                                   className="yellow-input"
                                    onChange={changeHandler}
                             />
                         </div>

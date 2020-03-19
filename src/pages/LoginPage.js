@@ -3,6 +3,7 @@ import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
 
+
 export const LoginPage = () =>{
     const auth = useContext(AuthContext)
     const message = useMessage();
@@ -25,13 +26,21 @@ export const LoginPage = () =>{
         setForm({...form, [event.target.name]: event.target.value})
     }
 
-    const registerHandler = async () => {
-        try {
-            const data = await request('/api/items/register', 'POST', {...form})
-            message(data.message)
-        } catch (e) {
-        }
-    }
+    // const registerHandler = async () => {
+    //     try {
+    //         const data = await request('/api/items/register', 'POST', {...form})
+    //         message(data.message)
+    //     } catch (e) {
+    //     }
+    // }
+
+    const reg = async () =>{
+        try{
+       await request(window.location.href = "http://localhost:3000/registration")
+    }catch (e) {
+           console.log(e,'errooooooooooooooor')
+        }}
+
 
 
     const loginHandler = async () => {
@@ -56,26 +65,27 @@ export const LoginPage = () =>{
 
                         <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons">email</i>
+                            <i className="material-icons prefix" >email</i>
+
                             <input
                                 placeholder="Email"
                                 id="email"
                                 type="text"
                                 name="email"
-                                className="yellow-input col s6 offset-s2"
+                                className="yellow-input "
                                 onChange={changeHandler}
                             />
                         </div>
 
                         <div className="input-field col s7 offset-s1">
                             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="Large material-icons">lock</i>
+                            <i className="material-icons prefix">lock</i>
                             <input
                                placeholder="Password"
                                id="password"
                                type="password"
                                name="password"
-                               className="yellow-input col s6 offset-s2"
+                               className="yellow-input"
                               onChange={changeHandler}
                         />
                         </div>
@@ -92,8 +102,8 @@ export const LoginPage = () =>{
                         </div>
                       <div className="card-action col s4 offset-s1">
                             <button
-                                className="btn yellow accent-3 black-text "
-                                onClick={registerHandler}
+                                className="btn yellow accent-2 black-text "
+                                onClick={reg}
                                 disabled={loading}
                             >
                                 Registration
@@ -105,4 +115,3 @@ export const LoginPage = () =>{
 )
 }
 
-//onClick={window.location.href = './pages/RegistrationPage'}
