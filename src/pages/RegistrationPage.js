@@ -4,7 +4,7 @@ import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
 
 export const RegistrationPage=()=>{
-    const auth = useContext(AuthContext)
+   // const auth = useContext(AuthContext)
     const message = useMessage();
     const {loading, request, error, clearError} = useHttp();
     const [form, setForm] = useState({
@@ -24,7 +24,7 @@ export const RegistrationPage=()=>{
         try {
             const data = await request('/api/items/register', 'POST', {...form})
             message(data.message)
-            auth.login(data.token, data.userId)
+           // auth.login(data.token, data.userId)
         } catch (e) {
         }
     }

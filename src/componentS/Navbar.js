@@ -14,17 +14,25 @@ export const Navbar = () =>{
 
     return (
         <nav>
-            <div className="nav-wrapper purple darken-1" style ={{ padding: '0 2rem'}}>
-                <div className="nav-wrapper purple darken-1">
-                    <span className="brand-logo">Collections</span>
-
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a href ="/" onClick={logoutHandler}>Logout</a></li>
-
+            <div className="nav-wrapper">
+                    {/*<span className="brand-logo">Collections</span>*/}
+                    <a href="#!" className="brand-logo">Collections</a>
+                    <form>
+                        <div className="input-field">
+                            <input id="search" type="search" required/>
+                                <label htmlFor="search"><i className="material-icons">search</i></label>
+                                <i className="material-icons">close</i>
+                        </div>
+                    </form>
+                     <ul id="nav-mobile" className="right hide-on-med-and-down">
+                         <li><a href ="/" onClick={logoutHandler}>Logout</a></li>
                     </ul>
                 </div>
-            </div>
+
         </nav>
+
+
+
 
     )
 }
@@ -32,3 +40,15 @@ export const Navbar = () =>{
 //     <input id="last_name" type="text" className="validate"/>
 //     <label htmlFor="last_name">Last Name</label>
 // </div>
+
+
+
+// <ul id="nav-mobile" className="right hide-on-med-and-down">
+//     <li><a href ="/" onClick={logoutHandler}>Logout</a></li>
+//
+// </ul>
+
+
+
+// <div className="nav-wrapper purple darken-1" style ={{ padding: '0 2rem'}}>
+//     <div className="nav-wrapper purple darken-1">

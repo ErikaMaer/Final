@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
-
+import Facebook from "../componentS/Facebook";
 
 export const LoginPage = () =>{
     const auth = useContext(AuthContext)
@@ -109,6 +109,7 @@ export const LoginPage = () =>{
                                 Registration
                             </button>
                         </div>
+                    <Facebook/>
                     </div>
             </div>
         </div>

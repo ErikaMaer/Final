@@ -3,7 +3,8 @@ import React from "react";
 export const Collections=()=>{
     return(
         <div>
-            <div className="row col s4 offset-s2">
+            <div className="row col s3 offset-s1">
+                <i className="material-icons" style={{color:"black", fontSize:"40"}}>add</i>
                 <div className="card col s3 offset-s1">
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
                     <div className="card-image waves-effect waves-block waves-light">
