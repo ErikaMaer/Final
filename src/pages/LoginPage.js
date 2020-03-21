@@ -3,6 +3,7 @@ import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
 import Facebook from "../componentS/Facebook";
+//import {vklogin} from "../componentS/vk";
 
 export const LoginPage = () =>{
     const auth = useContext(AuthContext)
@@ -40,6 +41,21 @@ export const LoginPage = () =>{
     }catch (e) {
            console.log(e,'errooooooooooooooor')
         }}
+
+
+
+
+
+    // const vk = async () =>{
+    //     try{
+    //         await request(window.location.href="https://oauth.vk.com/authorize?client_id=7369115&display=page&redirect_uri=http://localhost:3000&response_type=code&v=5.103")
+    //     }catch (e) {
+    //         console.log(e,'errooooooooooooooor')
+    //     }}
+
+
+
+
 
 
 
@@ -109,7 +125,23 @@ export const LoginPage = () =>{
                                 Registration
                             </button>
                         </div>
-                    <Facebook/>
+
+
+
+
+                    {/*<div className="card-action col s4 offset-s1">*/}
+                    {/*    <button*/}
+                    {/*        className="btn blue "*/}
+                    {/*        onClick={vklogin}*/}
+                    {/*        disabled={loading}*/}
+                    {/*    >*/}
+                    {/*        VK*/}
+                    {/*    </button>*/}
+                    {/*</div>*/}
+
+
+
+                   {/*<Facebook/>*/}
                     </div>
             </div>
         </div>
