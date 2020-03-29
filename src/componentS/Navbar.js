@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {useHistory} from 'react-router-dom';
 import {AuthContext} from "../contexT/AuthContext";
+import './componentS.css'
 
 export const Navbar = () =>{
     const history = useHistory()
@@ -14,16 +15,13 @@ export const Navbar = () =>{
 
     return (
         <nav>
-            <div className="nav-wrapper">
-                    {/*<span className="brand-logo">Collections</span>*/}
-                    <a href="#!" className="brand-logo">Collections</a>
-                    <form>
-                        <div className="input-field">
-                            <input id="search" type="search" required/>
-                                <label htmlFor="search"><i className="material-icons">search</i></label>
-                                <i className="material-icons">close</i>
-                        </div>
-                    </form>
+            <div className="nav-wrapper col s8">
+                <div>
+                    {/*<a href="#!" className="brand-logo">Collections</a>*/}
+                            <input
+                                className="input-nav col s6 offset-3"
+                                placeholder="Search"/>
+                </div>
                      <ul id="nav-mobile" className="right hide-on-med-and-down">
                          <li><a href ="/" onClick={logoutHandler}>Logout</a></li>
                     </ul>

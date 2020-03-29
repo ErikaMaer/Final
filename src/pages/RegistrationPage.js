@@ -29,12 +29,18 @@ export const RegistrationPage=()=>{
             console.log(e+'eeeeeeeee')
         }
     }
+    const back = async () =>{
+        try{
+            await request(window.location.href = "http://localhost:3000/login")
+        }catch (e) {
+            console.log(e,'errooooooooooooooor')
+        }}
 
 
     return(
         <div>
             <div className="row col s6 offset-s3">
-            <div className="card col s6 offset-s3" >
+            <div className="card col s5 offset-s3" >
                         <div className="card-content white-text col s6 offset-s3 m8 ">
                             <span
                                 className="card-title col s6 offset-s5"
@@ -81,7 +87,7 @@ export const RegistrationPage=()=>{
                             />
                         </div>
 
-                        <div className="card-action col s6 offset-s4">
+                        <div className="card-action col s4 offset-s4">
 
                             <button
                                 className="btn yellow accent-3 black-text  "
@@ -92,7 +98,12 @@ export const RegistrationPage=()=>{
                             </button>
                         </div>
                     </div>
-
+                <a
+                    className="text black-text"
+                    onClick={back}
+                >
+                    Back
+                </a>
             </div>
         </div>
     )

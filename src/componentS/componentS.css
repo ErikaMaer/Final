@@ -1,18 +1,50 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
 
-/*:root {*/
-/*    background: #ffffff  ;*/
-/*}*/
+
 
 /*nav.nav-wrapper.input-field{*/
 /*    width:70% !important;*/
 /*}*/
-
+.nav-wrapper{
+    background-color:#4e342e !important;
+}
 
 .card {
-    background-color: #546e7a;
+    background-color: #4e342e;
     background-position: right bottom;
     background-size: auto;
 }
+input.input-nav{
+    border-bottom: 1px solid #fff!important;
+    box-shadow: 0 1px 0 0 #fff!important;
+    position: absolute;
+    width:20% !important;
+}
 
+input.input-nav + label {
+    color: #ffffff!important;
+}
+
+input.input-nav:focus + label {
+    color: #ffeb3d!important;
+}
+
+input.input-nav:focus{
+    border-bottom: 1px solid #ffeb3d!important;
+    box-shadow: 0 1px 0 0 #ffeb3d!important;
+}
+
+input,textarea,select,button{
+    color:inherit;
+}
+
+.material-icons {
+    color: white;
+}
+
+.input-field .prefix.active{
+    color:#ffeb3d!important;
+    /* border-bottom: 1px solid #ffeb3d!important;*/
+    /* box-shadow: 0 1px 0 0 #ffeb3d!important;*/
+}

@@ -31,15 +31,19 @@
 import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 import {LoginPage} from "./pages/LoginPage";
-import {Collections} from "./pages/CollectionsPage";
+import {CollectionsPage} from "./pages/CollectionsPage";
 import {RegistrationPage} from "./pages/RegistrationPage";
+import {AddCollectionPage} from "./pages/AddCollectionPage";
 
 export const useRoutes = isAuthenticated =>{
     if(isAuthenticated){
         return(
             <Switch>
                 <Route path ="/collections" exact>
-                    <Collections/>
+                    <CollectionsPage />
+                </Route>
+                <Route path="/addCollection" exact>
+                    <AddCollectionPage />
                 </Route>
                 <Redirect to ="/collections"/>
             </Switch>
@@ -48,10 +52,10 @@ export const useRoutes = isAuthenticated =>{
     return (
         <Switch>
             <Route path="/" exact>
-                <LoginPage/>
+                <LoginPage />
             </Route>
             <Route path="/registration" exact>
-                <RegistrationPage/>
+                <RegistrationPage />
             </Route>
             <Redirect to="/"/>
         </Switch>
