@@ -34,6 +34,7 @@ import {LoginPage} from "./pages/LoginPage";
 import {CollectionsPage} from "./pages/CollectionsPage";
 import {RegistrationPage} from "./pages/RegistrationPage";
 import {AddCollectionPage} from "./pages/AddCollectionPage";
+import {EditCollectionPage} from "./pages/EditCollectionPage";
 
 export const useRoutes = isAuthenticated =>{
     if(isAuthenticated){
@@ -44,6 +45,9 @@ export const useRoutes = isAuthenticated =>{
                 </Route>
                 <Route path="/addCollection" exact>
                     <AddCollectionPage />
+                </Route>
+                <Route path ="/editCollection/:id" exact>
+                    <EditCollectionPage />
                 </Route>
                 <Redirect to ="/collections"/>
             </Switch>

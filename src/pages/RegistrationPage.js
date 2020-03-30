@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
+import './regAndLogPages.css'
 
 export const RegistrationPage=()=>{
    const auth = useContext(AuthContext)
@@ -98,10 +99,7 @@ export const RegistrationPage=()=>{
                             </button>
                         </div>
                     </div>
-                <a
-                    className="text black-text"
-                    onClick={back}
-                >
+                <a className="text black-text" onClick={back}>
                     Back
                 </a>
             </div>

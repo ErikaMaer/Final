@@ -1,0 +1,29 @@
+@import "../../../node_modules/materialize-css/dist/css/materialize.min.css";
+
+.collection{
+    letter-spacing: 1px;
+}
+.collection-header{
+    letter-spacing: 2px;
+    color: #222;
+    font-size: 16px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+/*.collection-item img{*/
+/*    size: auto;*/
+/*}*/
+/*p{*/
+/*    font-style: italic;*/
+/*}*/
+.collection-theme{
+    font-style: italic;
+}
+
+/*input,textarea,select,button{*/
+/*    color:inherit;*/
+/*}*/
+
+/*.material-icons{*/
+/*    color: black;*/
+/*}*/

@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
-import Facebook from "../componentS/Facebook";
+//import Facebook from "../componentS/Facebook";
 //import {vklogin} from "../componentS/vk";
 import './regAndLogPages.css'
 
