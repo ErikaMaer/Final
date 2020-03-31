@@ -99,7 +99,7 @@ export const RegistrationPage=()=>{
                             </button>
                         </div>
                     </div>
-                <a className="text black-text" onClick={back}>
+                <a href="/" className="text black-text" onClick={back}>
                     Back
                 </a>
             </div>

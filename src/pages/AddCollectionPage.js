@@ -4,8 +4,25 @@ import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../contexT/AuthContext";
 import {useMessage} from "../hooks/message.hook";
 import {useHistory} from "react-router-dom";
+import ReactMde from "react-mde";
+import * as Showdown from "showdown";
+import "react-mde/lib/styles/css/react-mde-all.css";
+
+const converter = new Showdown.Converter({
+    tables: true,
+    simplifiedAutoLink: true,
+    strikethrough: true,
+    tasklists: true
+});
+
+
 export const AddCollectionPage=()=>{
-    const { loading, request, error, clearError} = useHttp();
+
+    // const [value, setValue] = React.useState("**Hello world!!!**");
+    const [selectedTab, setSelectedTab] = React.useState("write");
+
+
+    const { request, error, clearError} = useHttp();
     const auth=useContext(AuthContext)
     const message = useMessage();
     const history=useHistory();
@@ -32,6 +49,7 @@ export const AddCollectionPage=()=>{
         setCard({...card, [event.target.name]: event.target.value})
     }
 
+
     const back = async () =>{
         try{
             await request(window.location.href = "http://localhost:3000/collections")
@@ -46,13 +64,14 @@ export const AddCollectionPage=()=>{
             </ul>
             <div className="widget col s1 offset-1 ">
                 <ul className="widget-list">
-                    <li><a href="">Choose a theme</a></li>
+                    <li>Choose a theme</li>
                 </ul>
             </div>
             <ul className="collection">
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
                 <li className="collection-item img">
                     <div className="input-field col s7 offset-s1">
+
                         <input
                             placeholder="Name of collection"
                             id="title"
@@ -61,23 +80,41 @@ export const AddCollectionPage=()=>{
                             className="yellow-input"
                             value={card.title}
                             onChange={changeHandler}
-
-
-
                         />
                     </div>
 
-                    <div className="input-field col s7 offset-s1">
-                        <input
-                            placeholder="Description"
-                            id="description"
-                            type="text"
-                            name="description"
-                            className="yellow-input"
-                            value={card.description}
-                            onChange={changeHandler}
-                        />
-                    </div>
+
+                    <ReactMde
+                        // id="description"
+                        // type="text"
+                        // className="description"
+                        value={card.description}
+                        // value={value}
+                       onChange={changeHandler}
+                        selectedTab={selectedTab}
+                        onTabChange={setSelectedTab}
+                        generateMarkdownPreview={markdown =>
+                            Promise.resolve(converter.makeHtml(markdown))
+                        }
+                        childProps={{
+                            writeButton: {
+                                tabIndex: -1
+                            }
+                        }}
+                    />
+
+
+                    {/*<div className="input-field col s7 offset-s1">*/}
+                    {/*    <input*/}
+                    {/*        placeholder="Description"*/}
+                    {/*        id="description"*/}
+                    {/*        type="text"*/}
+                    {/*        name="description"*/}
+                    {/*        className="yellow-input"*/}
+                    {/*        value={card.description}*/}
+                    {/*        onChange={changeHandler}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
                     <button
                         className="btn brown darken-3 "

@@ -7,11 +7,14 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "marked": "^0.8.2",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-mde": "^8.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "showdown": "^1.9.1"
   },
   "scripts": {
     "start": "react-scripts start",

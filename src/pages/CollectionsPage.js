@@ -44,7 +44,7 @@ export const CollectionsPage =()=>{
                 <div className="widget col s1 offset-1 ">
                     <h3 className="widget-title">Menu:</h3>
                     <ul className="widget-list">
-                       <a onClick={add}
+                       <a href ="/addCollection" onClick={add}
                        >Add collection
                        </a>
                     </ul>

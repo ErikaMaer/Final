@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 export const CardsList=({cards})=> {
     // const history=useHistory();
     if (!cards.length){
-        return <p className="center">Not collections</p>
+        return <p className="center">No collections</p>
     }
 
 
