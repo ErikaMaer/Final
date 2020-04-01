@@ -50,7 +50,6 @@ export const CollectionsPage =()=>{
                     </ul>
                     </div>
                 {!loading && <CardsList cards={cards}/>}
-               {/*<Card/>*/}
             </div>
         );
 };

@@ -7,7 +7,7 @@ export const EditCard =({card}) =>{
             <li className="collection-item">
                 <span className="collection-header"><p>You title:{card.title}</p></span>
                 <p>You description:{card.description}</p>
-                <p>You theme:<span className="collection-theme">Beauty</span></p>
+                <p>You theme:{card.theme}</p>
             </li>
         </ul>
     )
