@@ -17,11 +17,10 @@ export const CardsList=({cards})=> {
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
                         <li className="collection-item">
                             {/*<img className="img" src={require("./chanel.jpg")} alt=""/>*/}
-                            <span className="collection-header">{card.title}</span>
-                            <Link to={`/editCollection/${card._id}`}>Edit</Link>
-                            <Link to={`/cardItems/${card._id}`}>Open</Link>
+                            <p className="edit"><Link to={`/editCollection/${card._id}`}>Edit</Link></p>
+                            <Link to={`/cardItems/${card._id}`}><p className="collection-header">{card.title}</p></Link>
                             <p>{card.description}</p>
-                            <p>{card.theme}</p>
+                            <p className="par">{card.theme}</p>
                         </li>
 
                     </ul>

@@ -42,6 +42,17 @@ import {AdminPage} from "./pages/AdminPage";
 
 
 export const useRoutes = isAuthenticated =>{
+
+    // function checkLogin() {
+    //     const userId = window.localStorage.getItem('userId')
+    //     if (userId === '5e83b1dcd788c80d28e9e9b5') {
+    //         console.log('пропусти')
+    //     }
+    // }
+
+
+
+
     if(isAuthenticated){
         return(
             <Switch>
@@ -51,7 +62,7 @@ export const useRoutes = isAuthenticated =>{
                 <Route path="/addCollection" exact>
                     <AddCollectionPage />
                 </Route>
-                <Route path="/addItem/:id">
+                <Route path="/addItem/:id" >
                     <AddItemPage />
                 </Route>
                 <Route path ="/editCollection/:id">
@@ -60,13 +71,14 @@ export const useRoutes = isAuthenticated =>{
                 <Route path ="/cardItems/:id">
                     <CardItemsPage />
                 </Route>
-                <Route path="/items" exact>
+                <Route path="/items" exact >
                     <AdminPage  />
                 </Route>
                 <Redirect to ="/collections"/>
             </Switch>
         )
     }
+    // onEnter={checkLogin}
     return (
         <Switch>
             <Route path="/" exact>

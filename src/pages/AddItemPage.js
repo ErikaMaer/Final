@@ -23,7 +23,7 @@ export const AddItemPage=()=>{
 
     const createItem = async ()=> {
         try {
-            const data = await request('/api/item/generate', 'POST', {...item},
+            const data = await request(`/api/item/generate/${CardId}`, 'POST', {...item},
                 {Authorization:`Bearer ${auth.token}`})
             console.log(data,'dataaaaaaaaaaaaaaa')
             await history.push(`/cardItems/${CardId}`)
@@ -40,7 +40,7 @@ export const AddItemPage=()=>{
 
     const back = async () =>{
         try{
-            await history.push(`/api/item/${CardId}`)
+            await history.push(`/cardItems/${CardId}`)
         }catch (e) {
             console.log(e,'errooooooooooooooor')
         }}

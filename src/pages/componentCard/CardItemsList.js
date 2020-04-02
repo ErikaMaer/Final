@@ -1,6 +1,7 @@
 import React from "react";
 import './card.css'
 import {Link} from "react-router-dom";
+import TodoList from "../../Todo/TodoList";
 
 
 export const CardItemsList =({items})=> {
@@ -10,17 +11,23 @@ export const CardItemsList =({items})=> {
     }
 
     return (
-        <div>
+        <table className ="table centered highlight">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
             { items.map(item=>{
                 return (
-                    <ul className="collection" key={item._id}>
-                        <li className="collection-item">
-                            <span className="collection-header">{item.title}</span>
-                            <p>{item.description}</p>
-                        </li>
-                    </ul>
+                    <tr key={item._id}>
+                        <td>{item.title}</td>
+                        <td>{item.description}</td>
+                    </tr>
                 )
             })}
-        </div>
+            </tbody>
+        </table>
     )
 }

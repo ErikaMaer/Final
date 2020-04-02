@@ -46,6 +46,9 @@ if(loading){
 
 return(
         <div>
+            <ul className="header ">
+                <li className="header-title col s4 offset-3">Edit collection:</li>
+            </ul>
             <div className="widget col s1 offset-1 ">
                 <h3 className="widget-title">Menu:</h3>
                 <ul className="widget-list">

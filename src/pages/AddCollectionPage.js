@@ -66,7 +66,7 @@ export const AddCollectionPage=()=>{
     return (
         <div>
             <ul className="header ">
-                <li className="header-title col s4 offset-3">Create Collection</li>
+                <li className="header-title col s4 offset-3">Create Collection:</li>
             </ul>
             <div className="widget col s1 offset-1 ">
 

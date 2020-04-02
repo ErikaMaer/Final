@@ -7,11 +7,11 @@ import {useHistory, useParams} from "react-router-dom";
 
 
 export const CardItemsPage =()=>{
-    let [item, setItem] = useState(null);
+    let [item, setItem] = useState([]);
     const {token}= useContext(AuthContext)
     const {request,loading} = useHttp();
     const history=useHistory();
-
+    const CardId = useParams().id
 
     const WCards = useCallback(async ()=>{
         try{
@@ -49,9 +49,12 @@ export const CardItemsPage =()=>{
     if(loading){
         return <Loader/>
     }
+
+
+
     const add = async () =>{
         try{
-            await history.push(`/addItem/:id`)
+            await history.push(`/addItem/${CardId}`)
         }catch (e) {
             console.log(e,'errooooooooooooooor')
         }}
@@ -70,16 +73,11 @@ export const CardItemsPage =()=>{
                 <ul className="widget-list">
                     <a onClick={add} >Add item</a>
                     <a>Delete item</a>
-                    <a
-                        className="text black-text"
-                        onClick={back}
-                    >
-                        Back
-                    </a>
-
+                    <a className="text black-text"
+                       onClick={back}>Back</a>
                 </ul>
             </div>
-            {!loading && item && <CardItemsList items={item}/>}
+                {!loading && item && <CardItemsList items={item}/>}
         </div>
     );
 };
