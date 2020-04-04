@@ -25,7 +25,6 @@ export const AddItemPage=()=>{
         try {
             const data = await request(`/api/item/generate/${CardId}`, 'POST', {...item},
                 {Authorization:`Bearer ${auth.token}`})
-            console.log(data,'dataaaaaaaaaaaaaaa')
             await history.push(`/cardItems/${CardId}`)
         } catch (e) {
             console.log(e,'errooooooooooooooor')

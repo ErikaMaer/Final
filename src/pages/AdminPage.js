@@ -1,11 +1,13 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useHttp} from "../hooks/http.hook";
 import TodoList from "../Todo/TodoList";
+import './AdminPage.css'
+import {Loader} from "../componentS/Loader";
 //items=admin
 
 export const AdminPage = () => {
     let [users, setUsers] = useState([]);
-    const {request} = useHttp();
+    const {loading,request} = useHttp();
 
     const addHandler = useCallback(async () => {
         try {
@@ -19,6 +21,9 @@ export const AdminPage = () => {
         addHandler()
     }, [addHandler]);
 
+    if(loading){
+        return <Loader/>
+    }
 
     function toggleTodo(_id) {
         setUsers(users.map(user => {
@@ -67,43 +72,40 @@ export const AdminPage = () => {
 
 
     return (
-        <div>
-            <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-                <button type="button" className="btn btn-secondary deep-orange darken-4" style={{marginRight: 10}}
-                        onClick={() => blockHandler("block")}
-                >Block</button>
-                <button type="button" className="btn btn-secondary green darken-4" style={{marginRight: 10}}
-                        onClick={() => blockHandler(null)}
-                >Unlock</button>
-                <button type="button" className="btn btn-secondary grey darken-2" style={{marginRight: 10}}
-                        onClick={deleteHandler}>
-                    <i className="material-icons">delete</i></button>
-            </div>
-
-
-            <table className="highlight">
-                <thead className="thead-dark">
-                <tr>
-                    <th>Select all /<br/>deselect all <br/>
-                        <label>
-                            <input type="checkbox"
-                                   onClick={() =>onCheckedAll()}
-                            /><span></span>
-                        </label>
-                    </th>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Registration date</th>
-                    <th>Last login date</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <TodoList todos={users} onToggle={toggleTodo} />
-            </table>
-        </div>
-    )
+<div>
+    <div className="btn-toolbar">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+    <button type="button" className="btn "
+            onClick={() => blockHandler("block")}
+    >Block</button>
+    <button type="button" className="btn "
+            onClick={() => blockHandler(null)}
+    >Unlock</button>
+    <button type="button" className="btn "
+            onClick={deleteHandler}>
+        <i className="material-icons">delete</i></button>
+    </div>
+<table className="highlight">
+    <thead className="thead-dark">
+    <tr>
+        <th>Select all /<br/>deselect all <br/>
+            <label>
+                <input type="checkbox"
+                       onClick={() =>onCheckedAll()}
+                /><span className="ch"></span>
+            </label>
+        </th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Registration date</th>
+        <th>Last login date</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <TodoList todos={users} onToggle={toggleTodo} />
+</table>
+</div>
+)
 };
 
 

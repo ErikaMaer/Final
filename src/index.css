@@ -1,39 +1,61 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
-:root {
-    background: #fce4ec  ;
-    font-family: "Times New Roman";
+html{
+    background-size: auto;
+   min-height: 670px;
 }
 
+:root{
+    background:linear-gradient(45deg, rgba(233, 30, 99, .5), rgba(33, 150, 243, .5));
+    /*font-family: Poppins-Regular;*/
+
+}
 .card {
-    background-color: #4e342e;
-    background-position: bottom;
-    position: initial;
-    background-size: initial;
+    padding: 40px 40px 10px;
+    margin: 40px 30px;
+    display: grid;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 25px;
+    grid-area: auto;
+    align-self: auto;
+    justify-self: center;
+}
+.card-title{
+    display: grid;
+    align-self: auto;
+    justify-self: auto;
+    color: black;
 }
 
 .row{
-    width: 1050px!important;
+    display: grid;
+    /*align-content: center;*/
+    /*justify-content: center;*/
 }
 
 
-input.yellow-input{
-    border-bottom: 1px solid #fff!important;
-    box-shadow: 0 1px 0 0 #fff!important;
-    width:120% !important;
+.input-field{
+    margin-left: 0!important;
+    padding: 0!important;
 }
 
-input.yellow-input + label {
+input.our-input{
+    border-bottom: 1px solid #000000!important;
+    /*box-shadow: 0 1px 0 0 #000000!important;*/
+    width:110% !important;
+}
+
+input.our-input + label {
     color: #ffffff!important;
 }
 
-input.yellow-input:focus + label {
-    color: #ffeb3d!important;
+input.our-input:focus + label {
+    color: #64b5f6!important;
 }
 
-input.yellow-input:focus{
-    border-bottom: 1px solid #ffeb3d!important;
-    box-shadow: 0 1px 0 0 #ffeb3d!important;
+input.our-input:focus{
+    border-bottom: 1px solid #64b5f6!important;
+    box-shadow: 0 1px 0 0 #64b5f6!important;
 }
 
 input,textarea,select,button{
@@ -43,7 +65,7 @@ input,textarea,select,button{
 
 
 .input-field .prefix.active{
-    color:#ffeb3d!important;
+    color:#64b5f6!important;
     /* border-bottom: 1px solid #ffeb3d!important;*/
     /* box-shadow: 0 1px 0 0 #ffeb3d!important;*/
 }

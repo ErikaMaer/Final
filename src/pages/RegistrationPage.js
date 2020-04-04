@@ -39,70 +39,71 @@ export const RegistrationPage=()=>{
 
 
     return(
-        <div>
-            <div className="row col s6 offset-s3">
-            <div className="card col s5 offset-s3" >
-                        <div className="card-content white-text col s6 offset-s3 m8 ">
-                            <span
-                                className="card-title col s6 offset-s5"
-                            >Registration</span>
-                        </div>
+<div>
+<div className="row ">
+<div className="card" >
+<div className="card-content white-text col s6 offset-s3 m8 ">
+    <span
+        className="card-title"
+    >Sign up</span>
+</div>
 
 
-                        <div  className="input-field col s7 offset-s1 ">
-                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons prefix">person</i>
-                            <input
-                                placeholder="Name"
-                                id="name"
-                                type="text"
-                                name="name"
-                                className="yellow-input"
-                                onChange={changeHandler}
-                            />
-                        </div>
+<div  className="input-field col s9 offset-s1 ">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <i className="material-icons prefix">person</i>
+    <input
+        placeholder="Name"
+        id="name"
+        type="text"
+        name="name"
+        className="our-input"
+        onChange={changeHandler}
+    />
+</div>
 
-                        <div className="input-field col s7 offset-s1">
-                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons prefix">email</i>
-                            <input
-                                placeholder="Email"
-                                id="email"
-                                type="text"
-                                name="email"
-                                className="yellow-input"
-                                onChange={changeHandler}
-                            />
+<div className="input-field col s9 offset-s1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <i className="material-icons prefix">email</i>
+    <input
+        placeholder="Email"
+        id="email"
+        type="text"
+        name="email"
+        className="our-input"
+        onChange={changeHandler}
+    />
+</div>
 
-                        </div>
+<div className="input-field col s9 offset-s1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <i className="material-icons prefix">lock</i>
+    <input placeholder="Password"
+           id="password"
+           type="password"
+           name="password"
+           className="our-input"
+           onChange={changeHandler}
+    />
+</div>
 
-                        <div className="input-field col s7 offset-s1">
-                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons prefix">lock</i>
-                            <input placeholder="Password"
-                                   id="password"
-                                   type="password"
-                                   name="password"
-                                   className="yellow-input"
-                                   onChange={changeHandler}
-                            />
-                        </div>
+<a
+    className="txt"
+    onClick={registerHandler}
+    disabled={loading}>
+Register</a>
 
-                        <div className="card-action col s4 offset-s4">
 
-                            <button
-                                className="btn yellow accent-3 black-text  "
-                                onClick={registerHandler}
-                                disabled={loading}
-                            >
-                                Register
-                            </button>
-                        </div>
-                    </div>
-                <a href="/" className="text black-text" onClick={back}>
-                    Back
-                </a>
-            </div>
-        </div>
-    )
+<a
+    className="txt2"
+    onClick={back}
+>Back to login</a>
+
+
+
+</div>
+{/*<a href="/" className="text black-text" onClick={back}>Back to login</a>*/}
+</div>
+</div>
+)
 }

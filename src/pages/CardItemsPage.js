@@ -73,9 +73,9 @@ export const CardItemsPage =()=>{
                 <ul className="widget-list">
                     <a onClick={add} >Add item</a>
                     <a>Delete item</a>
-                    <a className="text black-text"
-                       onClick={back}>Back</a>
                 </ul>
+                <a className="text black-text"
+                   onClick={back}>Back</a>
             </div>
                 {!loading && item && <CardItemsList items={item}/>}
         </div>

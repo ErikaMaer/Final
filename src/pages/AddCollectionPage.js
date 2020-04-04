@@ -41,6 +41,7 @@ export const AddCollectionPage=()=>{
         try {
             const data = await request('/api/card/collection', 'POST', {...card},
                 {Authorization:`Bearer ${auth.token}`})
+            auth.card(data.cardId)
             console.log(data,'dataaaaaaaaaaaaaaa')
             await history.push(`/collections`)
         } catch (e) {
@@ -68,25 +69,29 @@ export const AddCollectionPage=()=>{
             <ul className="header ">
                 <li className="header-title col s4 offset-3">Create Collection:</li>
             </ul>
-            <div className="widget col s1 offset-1 ">
+            <div className="widget col s3 offset-1 ">
 
                 <ul className="widget-list">
-                    <li>Choose a theme:</li>
+                    <h3 className="widget-title">Choose a theme:</h3>
                 </ul>
-
                 <div className="input-field col s1 offset-s1">
                     <input
                         placeholder="Theme"
                         id="theme"
                         type="text"
                         name="theme"
-                        className="yellow-input"
+                        className="our-input"
                         value={card.theme}
                         onChange={changeHandler}
                     />
                 </div>
 
-
+                <a
+                    className="text black-text"
+                    onClick={back}
+                >
+                    Back
+                </a>
 
 
                 {/*<div className="input-field col s1 offset-1">*/}
@@ -107,7 +112,7 @@ export const AddCollectionPage=()=>{
                             id="title"
                             type="text"
                             name="title"
-                            className="yellow-input"
+                            className="our-input"
                             value={card.title}
                             onChange={changeHandler}
                         />
@@ -140,14 +145,14 @@ export const AddCollectionPage=()=>{
                             id="description"
                             type="text"
                             name="description"
-                            className="yellow-input"
+                            className="our-input"
                             value={card.description}
                             onChange={changeHandler}
                         />
                     </div>
 
                     <button
-                        className="btn brown darken-3 "
+                        className="btn "
                         onClick={createCollection}
                        // disabled={loading}
                     >
@@ -157,12 +162,6 @@ export const AddCollectionPage=()=>{
                 </li>
 
             </ul>
-            <a
-                className="text black-text"
-                onClick={back}
-            >
-                Back
-            </a>
         </div>
 
     );

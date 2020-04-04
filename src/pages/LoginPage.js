@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useHttp} from "../hooks/http.hook";
 import {useMessage} from "../hooks/message.hook";
 import {AuthContext} from "../contexT/AuthContext";
-//import Facebook from "../componentS/Facebook";
 //import {vklogin} from "../componentS/vk";
 import './regAndLogPages.css'
 
@@ -59,79 +58,72 @@ export const LoginPage = () =>{
 
 
     return(
-        <div>
-            <div className="row col s6 offset-s3">
-                <div className="card col s5 offset-s3" >
-                        <div className="card-content white-text col s6 offset-s3 m8">
-                            <span
-                                className="card-title col s6 offset-s6"
-                            >Authorization</span>
-                        </div>
+<div >
+<div className="row" >
+<div className="card">
+<div className="card-content col s6 offset-s3 m8">
+    <span
+        className="card-title"
+    >Sign in</span>
+</div>
 
 
-                        <div className="input-field col s7 offset-s1">
-                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons prefix " >email</i>
+<div className="input-field col s9 offset-s1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <i className="material-icons prefix " >email</i>
+    <input
+        placeholder="Email"
+        id="email"
+        type="text"
+        name="email"
+        className="our-input "
+        onChange={changeHandler}
+    />
+</div>
 
-                            <input
-                                placeholder="Email"
-                                id="email"
-                                type="text"
-                                name="email"
-                                className="yellow-input "
-                                onChange={changeHandler}
-                            />
-                        </div>
+<div className="input-field col s9 offset-s1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <i className="material-icons prefix">lock</i>
+    <input
+       placeholder="Password"
+       id="password"
+       type="password"
+       name="password"
+       className="our-input"
+      onChange={changeHandler}
+/>
+</div>
 
-                        <div className="input-field col s7 offset-s1">
-                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                            <i className="material-icons prefix">lock</i>
-                            <input
-                               placeholder="Password"
-                               id="password"
-                               type="password"
-                               name="password"
-                               className="yellow-input"
-                              onChange={changeHandler}
-                        />
-                        </div>
 
-                        <div className="card-action col s4 offset-s1">
-                            <button
-                                className="btn amber darken-4 "
-                                disabled={loading}
-                                onClick={loginHandler}
+<a
+    className="txt"
+    disabled={loading}
+    onClick={loginHandler}
+>Login</a>
 
-                            >
-                                Sign in
-                            </button>
-                        </div>
-                      <div className="card-action col s5 offset-s1">
-                            <button
-                                className="btn  yellow black-text "
-                                onClick={reg}
-                                disabled={loading}
-                            >
-                                Registration
-                            </button>
-                        </div>
+<span className="ak"> Don’t have an account?
+<a
+    className="txt1"
+    onClick={reg}
+    disabled={loading}
+>Sign up</a></span>
 
-                    {/*<div className="card-action col s4 offset-s1">*/}
-                    {/*    <button*/}
-                    {/*        className="btn blue "*/}
-                    {/*        onClick={vklogin}*/}
-                    {/*        disabled={loading}*/}
-                    {/*    >*/}
-                    {/*        VK*/}
-                    {/*    </button>*/}
-                    {/*</div>*/}
+
+    {/*<div className="card-action col s4 offset-s1">*/}
+    {/*    <button*/}
+    {/*        className="btn blue "*/}
+    {/*        onClick={vklogin}*/}
+    {/*        disabled={loading}*/}
+    {/*    >*/}
+    {/*        VK*/}
+    {/*    </button>*/}
+    {/*</div>*/}
 
 
 
-                   {/*<Facebook/>*/}
-                    </div>
-            </div>
-        </div>
+    </div>
+</div>
+</div>
 )
 }
 

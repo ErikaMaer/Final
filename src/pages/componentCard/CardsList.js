@@ -13,17 +13,16 @@ export const CardsList=({cards})=> {
 <div>
         { cards.map(card=>{
                 return (
-                    <ul className="collection" key={card._id}>
-                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                        <li className="collection-item">
+                    // <div className="collection" >
+                        <div className="collection-item" key={card._id}>
                             {/*<img className="img" src={require("./chanel.jpg")} alt=""/>*/}
                             <p className="edit"><Link to={`/editCollection/${card._id}`}>Edit</Link></p>
                             <Link to={`/cardItems/${card._id}`}><p className="collection-header">{card.title}</p></Link>
                             <p>{card.description}</p>
                             <p className="par">{card.theme}</p>
-                        </li>
+                        </div>
 
-                    </ul>
+                    // </div>
                 )
 
             })}

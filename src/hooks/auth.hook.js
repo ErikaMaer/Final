@@ -1,6 +1,7 @@
 import {useState, useCallback, useEffect} from 'react'
 
 const storageName='userData'
+const cardName='cardData'
 
 export const useAuth =()=>{
     const [token, setToken]= useState(null)
@@ -11,10 +12,19 @@ export const useAuth =()=>{
     const login =useCallback((jwtToken,id)=>{
         setToken(jwtToken)
         setUserId(id)
-        // setCardId(id)
+
 
         localStorage.setItem(storageName, JSON.stringify({
             userId:id,token:jwtToken
+        }))
+    },[])
+
+    const card =useCallback((id,idUser)=>{
+         setCardId(id)
+        setUserId(idUser)
+
+        localStorage.setItem(cardName, JSON.stringify({
+           cardId:id, userId:idUser
         }))
     },[])
 
@@ -22,9 +32,21 @@ export const useAuth =()=>{
     const logout =useCallback(()=>{
         setToken(null)
         setUserId(null)
-        // setCardId(null)
+        setCardId(null)
+
         localStorage.removeItem(storageName)
+        localStorage.removeItem(cardName)
     },[])
+
+
+    useEffect(()=>{
+       const data =JSON.parse(localStorage.getItem(cardName))
+
+        if (data && data.userId){
+            card(data.userId ,data.cardId)
+        }
+        setReady(true)
+    },[card])
 
     useEffect(()=>{
         const data =JSON.parse(localStorage.getItem(storageName))
@@ -37,6 +59,6 @@ export const useAuth =()=>{
 
 
 
-    return {login, logout, token, userId, ready,cardId}
+    return {login, logout, token, userId, ready,cardId,card}
 
 }
