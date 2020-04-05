@@ -5,6 +5,7 @@
 
 p{
     cursor: pointer;
+    size: auto;
 }
 a{
     cursor: pointer;
@@ -56,13 +57,9 @@ span.card-title{
     padding-top: 0px!important;
     margin-left:50px!important; ;
 }
-/*.btn{*/
-/*    display: grid;*/
-/*    grid-area: auto;*/
-/*    align-self: center;*/
-/*    justify-self: center;*/
-/*}*/
+
 .widget {
+    background-size: auto;
     padding: 5px 30px 20px;
     background: white;
     float:left;
@@ -103,10 +100,6 @@ span.card-title{
 .kep-login-facebook{
     font-size: 25px;
     color: blue;
-    /*display: -webkit-box;*/
-    /*display: -webkit-flex;*/
-    /*display: -moz-box;*/
-    /*display: -ms-flexbox;*/
     display: flex;
     justify-content: center;
     align-items: center;

@@ -47,60 +47,50 @@ export const AddItemPage=()=>{
 
 
 
-    return (
-        <div>
-            <ul className="header ">
-                <li className="header-title col s4 offset-3">Create Item</li>
-            </ul>
-            <div className="widget col s1 offset-1 ">
-            </div>
+return (
+<div>
+<ul className="header ">
+    <li className="header-title col s4 offset-3">Create Item</li>
+</ul>
 
+<button type="button" className="btn" style={{marginLeft:"20px"}}
+        onClick={back}>
+    <i className="material-icons">arrow_back</i></button>
 
-            <ul className="collection">
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                <li className="collection-item img">
-                    <div className="input-field col s7 offset-s1">
+<ul className="collection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <li className="collection-item img">
+<div className="input-field col s7 offset-s1">
 
-                        <input
-                            placeholder="Name of item"
-                            id="title"
-                            type="text"
-                            name="title"
-                            className="yellow-input"
-                            value={item.title}
-                            onChange={changeHandler}
-                        />
-                    </div>
+    <input
+        placeholder="Name of item"
+        id="title"
+        type="text"
+        name="title"
+        className="yellow-input"
+        value={item.title}
+        onChange={changeHandler}
+    />
+</div>
 
-                    <div className="input-field col s7 offset-s1">
-                        <input
-                            placeholder="Description"
-                            id="description"
-                            type="text"
-                            name="description"
-                            className="yellow-input"
-                            value={item.description}
-                            onChange={changeHandler}
-                        />
-                    </div>
+<div className="input-field col s7 offset-s1">
+    <input
+        placeholder="Description"
+        id="description"
+        type="text"
+        name="description"
+        className="yellow-input"
+        value={item.description}
+        onChange={changeHandler}
+    />
+</div>
 
-                    <button
-                        className="btn brown darken-3 "
-                        onClick={createItem}
-                    >
-                        Create
-                    </button>
-
-                </li>
-
-            </ul>
-            <a
-                className="text black-text"
-                onClick={back}
-            >
-                Back
-            </a>
-        </div>
-
-    );
+<button
+    className="btn "
+    onClick={createItem}>Create
+</button>
+</li>
+</ul>
+</div>
+);
 };

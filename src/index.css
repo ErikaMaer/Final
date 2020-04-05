@@ -1,13 +1,15 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
+
+
 html{
     background-size: auto;
-   min-height: 670px;
+     min-height: 1000px;
+     min-width: 700px;
 }
 
 :root{
     background:linear-gradient(45deg, rgba(233, 30, 99, .5), rgba(33, 150, 243, .5));
-    /*font-family: Poppins-Regular;*/
 
 }
 .card {
@@ -29,8 +31,6 @@ html{
 
 .row{
     display: grid;
-    /*align-content: center;*/
-    /*justify-content: center;*/
 }
 
 
@@ -66,6 +66,4 @@ input,textarea,select,button{
 
 .input-field .prefix.active{
     color:#64b5f6!important;
-    /* border-bottom: 1px solid #ffeb3d!important;*/
-    /* box-shadow: 0 1px 0 0 #ffeb3d!important;*/
 }

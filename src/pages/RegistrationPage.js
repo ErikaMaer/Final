@@ -22,20 +22,20 @@ export const RegistrationPage=()=>{
     }
 
     const registerHandler = async () => {
-        try {
-            const data = await request('/api/items/register', 'POST', {...form})
-            message(data.message)
-            auth.login(data.token, data.userId)
-        } catch (e) {
-            console.log(e+'eeeeeeeee')
-        }
+    try {
+        const data = await request('/api/items/register', 'POST', {...form})
+        message(data.message)
+        auth.login(data.token, data.userId)
+    } catch (e) {
+        console.log(e+'eeeeeeeee')
+    }
     }
     const back = async () =>{
-        try{
-            await request(window.location.href = "http://localhost:3000/login")
-        }catch (e) {
-            console.log(e,'errooooooooooooooor')
-        }}
+    try{
+        await request(window.location.href = "http://localhost:3000/login")
+    }catch (e) {
+        console.log(e,'errooooooooooooooor')
+    }}
 
 
     return(

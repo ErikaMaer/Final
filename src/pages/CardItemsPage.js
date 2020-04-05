@@ -7,77 +7,61 @@ import {useHistory, useParams} from "react-router-dom";
 
 
 export const CardItemsPage =()=>{
-    let [item, setItem] = useState([]);
-    const {token}= useContext(AuthContext)
-    const {request,loading} = useHttp();
-    const history=useHistory();
-    const CardId = useParams().id
+let [item, setItem] = useState([]);
+const {token}= useContext(AuthContext)
+const {request,loading} = useHttp();
+const history=useHistory();
+const CardId = useParams().id
 
-    const WCards = useCallback(async ()=>{
-        try{
-            const fetched = await request('/api/item', 'GET', null,{
-                Authorization: `Bearer ${token}`
-            })
-            setItem(fetched)
-        }catch (e) {}
-    },[token,request])
+const WCards = useCallback(async ()=>{
+    try{
+        const fetched = await request('/api/item', 'GET', null,{
+            Authorization: `Bearer ${token}`
+        })
+        setItem(fetched)
+    }catch (e) {}
+},[token,request])
 
-    useEffect(()=>{
-        WCards()
-    },[WCards])
-
-
+useEffect(()=>{
+    WCards()
+},[WCards])
 
 
 
+if(loading){
+    return <Loader/>
+}
 
-
-    //
-    // const fetchCards = useCallback(async ()=>{
-    //     try{
-    //         const fetched = await request(`/api/item/${CardId}`, 'GET', null,{
-    //             Authorization: `Bearer ${token}`
-    //         })
-    //         setItem(fetched)
-    //     }catch (e) {}
-    // },[token,request,CardId])
-    //
-    // useEffect(()=>{
-    //     fetchCards()
-    // },[fetchCards])
-
-    if(loading){
-        return <Loader/>
-    }
+const add = async () =>{
+    try{
+        await history.push(`/addItem/${CardId}`)
+    }catch (e) {
+        console.log(e,'errooooooooooooooor')
+    }}
+const back = async () =>{
+    try{
+        await request(window.location.href = "http://localhost:3000/collections")
+    }catch (e) {
+        console.log(e,'errooooooooooooooor')
+    }}
 
 
 
-    const add = async () =>{
-        try{
-            await history.push(`/addItem/${CardId}`)
-        }catch (e) {
-            console.log(e,'errooooooooooooooor')
-        }}
-    const back = async () =>{
-        try{
-            await request(window.location.href = "http://localhost:3000/collections")
-        }catch (e) {
-            console.log(e,'errooooooooooooooor')
-        }}
+return (
+<div>
+<div>
+<div className="btn-toolbar">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+    <button type="button" className="btn "
+            onClick={back}>
+        <i className="material-icons">arrow_back</i></button>
+    <button type="button" className="btn "
+            onClick={add}
+    >Add item</button>
+</div>
 
-
-    return (
-        <div>
-            <div className="widget col s1 offset-1 ">
-                <h3 className="widget-title">Menu:</h3>
-                <ul className="widget-list">
-                    <a onClick={add} >Add item</a>
-                    <a>Delete item</a>
-                </ul>
-                <a className="text black-text"
-                   onClick={back}>Back</a>
-            </div>
-                {!loading && item && <CardItemsList items={item}/>}
-        </div>
-    );
+</div>
+    {!loading && item && <CardItemsList items={item}/>}
+</div>
+);
 };

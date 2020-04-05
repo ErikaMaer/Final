@@ -46,18 +46,16 @@ export const LoginPage = () =>{
     //     }}
 
 
-
-
     const loginHandler = async () => {
-        try {
-            const data = await request('/api/items/login', 'POST', {...form})
-            auth.login(data.token, data.userId)
-        } catch (e) {
-        }
+    try {
+        const data = await request('/api/items/login', 'POST', {...form})
+        auth.login(data.token, data.userId)
+    } catch (e) {
+    }
     }
 
 
-    return(
+return(
 <div >
 <div className="row" >
 <div className="card">
@@ -108,7 +106,6 @@ export const LoginPage = () =>{
     disabled={loading}
 >Sign up</a></span>
 
-
     {/*<div className="card-action col s4 offset-s1">*/}
     {/*    <button*/}
     {/*        className="btn blue "*/}
@@ -118,9 +115,6 @@ export const LoginPage = () =>{
     {/*        VK*/}
     {/*    </button>*/}
     {/*</div>*/}
-
-
-
     </div>
 </div>
 </div>

@@ -64,105 +64,88 @@ export const AddCollectionPage=()=>{
 
 
 
-    return (
-        <div>
-            <ul className="header ">
-                <li className="header-title col s4 offset-3">Create Collection:</li>
-            </ul>
-            <div className="widget col s3 offset-1 ">
+return (
+<div>
+<ul className="header ">
+    <li className="header-title col s4 offset-3">Create Collection:</li>
+</ul>
+<button type="button" className="btn" style={{marginLeft:"20px"}}
+        onClick={back}>
+    <i className="material-icons">arrow_back</i></button>
 
-                <ul className="widget-list">
-                    <h3 className="widget-title">Choose a theme:</h3>
-                </ul>
-                <div className="input-field col s1 offset-s1">
-                    <input
-                        placeholder="Theme"
-                        id="theme"
-                        type="text"
-                        name="theme"
-                        className="our-input"
-                        value={card.theme}
-                        onChange={changeHandler}
-                    />
-                </div>
+    {/*<div className="input-field col s1 offset-1">*/}
+    {/*   <FlavorForm  selectedOption={card.theme}*/}
+    {/*       />*/}
+    {/*</div>*/}
 
-                <a
-                    className="text black-text"
-                    onClick={back}
-                >
-                    Back
-                </a>
-
-
-                {/*<div className="input-field col s1 offset-1">*/}
-                {/*   <FlavorForm  selectedOption={card.theme}*/}
-                {/*       />*/}
-                {/*</div>*/}
-
-            </div>
+<ul className="collection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <li className="collection-item img">
+<div className="input-field col s7 offset-s1">
+    <input
+        placeholder="Name of collection"
+        id="title"
+        type="text"
+        name="title"
+        className="our-input"
+        value={card.title}
+        onChange={changeHandler}
+    />
+</div>
 
 
-            <ul className="collection">
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                <li className="collection-item img">
-                    <div className="input-field col s7 offset-s1">
-
-                        <input
-                            placeholder="Name of collection"
-                            id="title"
-                            type="text"
-                            name="title"
-                            className="our-input"
-                            value={card.title}
-                            onChange={changeHandler}
-                        />
-                    </div>
-
-
-                    {/*<ReactMde*/}
-                    {/*    // id="description"*/}
-                    {/*    // type="text"*/}
-                    {/*    // className="description"*/}
-                    {/*    value={card.description}*/}
-                    {/*    // value={value}*/}
-                    {/*   onChange={changeHandler}*/}
-                    {/*    selectedTab={selectedTab}*/}
-                    {/*    onTabChange={setSelectedTab}*/}
-                    {/*    generateMarkdownPreview={markdown =>*/}
-                    {/*        Promise.resolve(converter.makeHtml(markdown))*/}
-                    {/*    }*/}
-                    {/*    childProps={{*/}
-                    {/*        writeButton: {*/}
-                    {/*            tabIndex: -1*/}
-                    {/*        }*/}
-                    {/*    }}*/}
-                    {/*/>*/}
+{/*<ReactMde*/}
+{/*    // id="description"*/}
+{/*    // type="text"*/}
+{/*    // className="description"*/}
+{/*    value={card.description}*/}
+{/*    // value={value}*/}
+{/*   onChange={changeHandler}*/}
+{/*    selectedTab={selectedTab}*/}
+{/*    onTabChange={setSelectedTab}*/}
+{/*    generateMarkdownPreview={markdown =>*/}
+{/*        Promise.resolve(converter.makeHtml(markdown))*/}
+{/*    }*/}
+{/*    childProps={{*/}
+{/*        writeButton: {*/}
+{/*            tabIndex: -1*/}
+{/*        }*/}
+{/*    }}*/}
+{/*/>*/}
 
 
-                    <div className="input-field col s7 offset-s1">
-                        <input
-                            placeholder="Description"
-                            id="description"
-                            type="text"
-                            name="description"
-                            className="our-input"
-                            value={card.description}
-                            onChange={changeHandler}
-                        />
-                    </div>
+<div className="input-field col s7 offset-s1">
+    <input
+        placeholder="Description"
+        id="description"
+        type="text"
+        name="description"
+        className="our-input"
+        value={card.description}
+        onChange={changeHandler}
+    />
+</div>
 
-                    <button
-                        className="btn "
-                        onClick={createCollection}
-                       // disabled={loading}
-                    >
-                        Create
-                    </button>
 
-                </li>
 
-            </ul>
-        </div>
+<div className="input-field col s1 offset-s1">
+    <input
+        placeholder="Theme"
+        id="theme"
+        type="text"
+        name="theme"
+        className="our-input"
+        value={card.theme}
+        onChange={changeHandler}
+    />
+</div>
 
-    );
+<button
+    className="btn "
+    onClick={createCollection}
+>Create</button>
+</li>
+</ul>
+</div>
+);
 };

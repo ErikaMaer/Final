@@ -17,17 +17,17 @@ function App() {
         return <Loader />
     }
   return (
-      <AuthContext.Provider value={{
-        token, login, logout,userId,isAuthenticated,cardId,card
-      }}>
-        <Router>
-          { isAuthenticated && <Navbar/> }
-          <div className="container">
-            {routes}
-          </div>
-        </Router>
-      </AuthContext.Provider>
-  )
-}
+  <AuthContext.Provider value={{
+    token, login, logout,userId,isAuthenticated,cardId,card
+  }}>
+    <Router>
+      { isAuthenticated && <Navbar/> }
+      <div className="container">
+        {routes}
+      </div>
+    </Router>
+  </AuthContext.Provider>
+    )
+    }
 
 export default App;

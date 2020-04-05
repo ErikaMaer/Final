@@ -1,33 +1,3 @@
-// import React from "react";
-// import {Switch, Route, Redirect} from "react-router-dom";
-// import {RegistrationPage} from "./pages/RegistrationPage";
-// import {LoginPage} from "./pages/LoginPage";
-// import {Collections} from "./pages/CollectionsPage";
-//
-// export const useRoutes = isAuthenticated =>{
-//     if(isAuthenticated){
-//         return(
-//             <Switch>
-//                 <Route path ="/collections" exact>
-//                     <Collections />
-//                 </Route>
-//                 <Redirect to ="/collections"/>
-//             </Switch>
-//         )
-//     }
-//     return (
-//         <Switch>
-//             <Route path="/" exact>
-//                 <LoginPage/>
-//             </Route>
-//             <Route path="/registration" exact>
-//                 <RegistrationPage/>
-//             </Route>
-//             <Redirect to="/"/>
-//         </Switch>
-//     )
-// }
-
 import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 import {LoginPage} from "./pages/LoginPage";
@@ -43,51 +13,41 @@ import {AdminPage} from "./pages/AdminPage";
 
 export const useRoutes = isAuthenticated =>{
 
-    // function checkLogin() {
-    //     const userId = window.localStorage.getItem('userId')
-    //     if (userId === '5e83b1dcd788c80d28e9e9b5') {
-    //         console.log('пропусти')
-    //     }
-    // }
+if(isAuthenticated){
+return(
+    <Switch>
+        <Route path ="/collections" exact>
+            <CollectionsPage />
+        </Route>
+        <Route path="/addCollection" exact>
+            <AddCollectionPage />
+        </Route>
+        <Route path="/addItem/:id" >
+            <AddItemPage />
+        </Route>
+        <Route path ="/editCollection/:id">
+            <EditCollectionPage />
+        </Route>
+        <Route path ="/cardItems/:id">
+            <CardItemsPage />
+        </Route>
+        <Route path="/items" exact >
+            <AdminPage  />
+        </Route>
+        <Redirect to ="/collections"/>
+    </Switch>
+)
+}
 
-
-
-
-    if(isAuthenticated){
-        return(
-            <Switch>
-                <Route path ="/collections" exact>
-                    <CollectionsPage />
-                </Route>
-                <Route path="/addCollection" exact>
-                    <AddCollectionPage />
-                </Route>
-                <Route path="/addItem/:id" >
-                    <AddItemPage />
-                </Route>
-                <Route path ="/editCollection/:id">
-                    <EditCollectionPage />
-                </Route>
-                <Route path ="/cardItems/:id">
-                    <CardItemsPage />
-                </Route>
-                <Route path="/items" exact >
-                    <AdminPage  />
-                </Route>
-                <Redirect to ="/collections"/>
-            </Switch>
-        )
-    }
-    // onEnter={checkLogin}
-    return (
-        <Switch>
-            <Route path="/" exact>
-                <LoginPage />
-            </Route>
-            <Route path="/registration" exact>
-                <RegistrationPage />
-            </Route>
-            <Redirect to="/"/>
-        </Switch>
-    )
+return (
+    <Switch>
+        <Route path="/" exact>
+            <LoginPage />
+        </Route>
+        <Route path="/registration" exact>
+            <RegistrationPage />
+        </Route>
+        <Redirect to="/"/>
+    </Switch>
+)
 }

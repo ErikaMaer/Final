@@ -4,11 +4,9 @@ import {CardsList} from "./componentCard/CardsList";
 import {useHistory} from 'react-router-dom'
 import {AuthContext} from "../contexT/AuthContext";
 import {Loader} from "../componentS/Loader";
-import './CollectionPage.css'
 
 
 
-//const {loading} = useHttp();
 
 export const CollectionsPage =()=>{
     let [cards, setCards] = useState([]);
@@ -34,63 +32,27 @@ export const CollectionsPage =()=>{
     }
 
     const add = async () =>{
-            try{
-                await history.push(`/addCollection`)
-            }catch (e) {
-                console.log(e,'errooooooooooooooor')
-            }}
+    try{
+        await history.push(`/addCollection`)
+    }catch (e) {
+        console.log(e,'errooooooooooooooor')
+    }}
 
 
-        return (
-            <div>
-                <ul className="header ">
-                    <li className="header-title col s4 offset-3">Collections:</li>
-                </ul>
-                <div className="widget col s1 offset-1 ">
-                    <h3 className="widget-title">Menu:</h3>
-                    <ul className="widget-list">
-                       <a href ="/addCollection" onClick={add}
-                       >Add collection</a>
-                    </ul>
-                    </div>
-                <div className="collection">
-                {!loading && <CardsList cards={cards}/>}</div>
-            </div>
-        );
+return (
+<div>
+
+    <ul className="header ">
+        <li className="header-title col s4 offset-3">Collections:</li>
+        <li>
+        <button type="button" className="btn" style={{marginLeft:"20px"}}
+                onClick={add}
+        >Add collection</button></li>
+    </ul>
+
+    <div className="collection">
+    {!loading && <CardsList cards={cards}/>}</div>
+</div>
+
+);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // export const Collections=()=> {
- //         return(
- //        <div>
- //            <div className="row col s2 offset-s1">
- //                <button
- //                    className=" col s offset-s "
- //                    //onClick={<Parent/>}
- //                >
- //                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
- //                <i className="material-icons col s offset-s" >add</i>
- //                </button>
- //              <Card/>
- //        </div>
- //        </div>
- //        )
- //     }
-
